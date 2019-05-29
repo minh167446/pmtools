@@ -1,3 +1,4 @@
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
@@ -7,8 +8,7 @@ import { controllers, services } from '@aureole/core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Group } from './group/group.entity';
-import { GroupModule } from './group/group.module';
-import { PersonModule } from './person/person.module';
+import { HttpErrorFilter } from '../http-error.filter';
 import { Person } from './person/person.entity';
 import { GroupController } from './group/group.controller';
 import { PersonController } from './person/person.controller';
@@ -27,7 +27,11 @@ import { PersonService } from './person/person.service';
     TypeOrmModule.forFeature([...entities, Group, Person])
   ],
   controllers: [...controllers, AppController, GroupController, PersonController],
-  providers: [...services, AppService, GroupService, PersonService],
+  providers: [...services,
+    {
+      provide: APP_FILTER,
+      useClass: HttpErrorFilter,
+    }, AppService, GroupService, PersonService],
 })
  export class AppModule {
  constructor(private readonly connection: Connection) {}

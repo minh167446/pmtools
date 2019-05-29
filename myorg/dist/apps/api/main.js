@@ -109,25 +109,16 @@ var AppController = /** @class */ (function () {
     function AppController(appService) {
         this.appService = appService;
     }
-    AppController.prototype.getData = function () {
-        return this.appService.getData();
-    };
-    AppController.prototype.addTodo = function () {
-        return this.appService.addTodo();
+    AppController.prototype.root = function () {
+        return this.appService.root();
     };
     var _a;
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Get"])('todos'),
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Get"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", []),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
-    ], AppController.prototype, "getData", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('addTodo'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", []),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
-    ], AppController.prototype, "addTodo", null);
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", String)
+    ], AppController.prototype, "root", null);
     AppController = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])(),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof _app_service__WEBPACK_IMPORTED_MODULE_2__["AppService"] !== "undefined" && _app_service__WEBPACK_IMPORTED_MODULE_2__["AppService"]) === "function" ? _a : Object])
@@ -151,22 +142,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
-/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
-/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! typeorm */ "typeorm");
-/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _aureole_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @aureole/core */ "@aureole/core");
-/* harmony import */ var _aureole_core__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_aureole_core__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.controller */ "./apps/api/src/app/app.controller.ts");
-/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.service */ "./apps/api/src/app/app.service.ts");
-/* harmony import */ var _group_group_entity__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./group/group.entity */ "./apps/api/src/app/group/group.entity.ts");
-/* harmony import */ var _person_person_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./person/person.entity */ "./apps/api/src/app/person/person.entity.ts");
-/* harmony import */ var _group_group_controller__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./group/group.controller */ "./apps/api/src/app/group/group.controller.ts");
-/* harmony import */ var _person_person_controller__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./person/person.controller */ "./apps/api/src/app/person/person.controller.ts");
-/* harmony import */ var _group_group_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./group/group.service */ "./apps/api/src/app/group/group.service.ts");
-/* harmony import */ var _person_person_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./person/person.service */ "./apps/api/src/app/person/person.service.ts");
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/core */ "@nestjs/core");
+/* harmony import */ var _nestjs_core__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_core__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @nestjs/typeorm */ "@nestjs/typeorm");
+/* harmony import */ var _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! typeorm */ "typeorm");
+/* harmony import */ var typeorm__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(typeorm__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _aureole_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @aureole/core */ "@aureole/core");
+/* harmony import */ var _aureole_core__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_aureole_core__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _app_controller__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.controller */ "./apps/api/src/app/app.controller.ts");
+/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.service */ "./apps/api/src/app/app.service.ts");
+/* harmony import */ var _group_group_entity__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./group/group.entity */ "./apps/api/src/app/group/group.entity.ts");
+/* harmony import */ var _http_error_filter__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../http-error.filter */ "./apps/api/src/http-error.filter.ts");
+/* harmony import */ var _person_person_entity__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./person/person.entity */ "./apps/api/src/app/person/person.entity.ts");
+/* harmony import */ var _group_group_controller__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./group/group.controller */ "./apps/api/src/app/group/group.controller.ts");
+/* harmony import */ var _person_person_controller__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./person/person.controller */ "./apps/api/src/app/person/person.controller.ts");
+/* harmony import */ var _group_group_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./group/group.service */ "./apps/api/src/app/group/group.service.ts");
+/* harmony import */ var _person_person_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./person/person.service */ "./apps/api/src/app/person/person.service.ts");
+
+
 
 
 
@@ -188,18 +184,21 @@ var AppModule = /** @class */ (function () {
     }
     var _a;
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Module"])({
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_2__["Module"])({
             imports: [
                 // GroupModule,
                 // PersonModule,
-                _aureole_core__WEBPACK_IMPORTED_MODULE_4__["AitCoreModule"],
-                _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__["TypeOrmModule"].forRoot(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, _aureole_core__WEBPACK_IMPORTED_MODULE_4__["dbConfig"], { entities: _aureole_core__WEBPACK_IMPORTED_MODULE_4__["entities"].concat([_group_group_entity__WEBPACK_IMPORTED_MODULE_7__["Group"], _person_person_entity__WEBPACK_IMPORTED_MODULE_8__["Person"]]) })),
-                _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_2__["TypeOrmModule"].forFeature(_aureole_core__WEBPACK_IMPORTED_MODULE_4__["entities"].concat([_group_group_entity__WEBPACK_IMPORTED_MODULE_7__["Group"], _person_person_entity__WEBPACK_IMPORTED_MODULE_8__["Person"]]))
+                _aureole_core__WEBPACK_IMPORTED_MODULE_5__["AitCoreModule"],
+                _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__["TypeOrmModule"].forRoot(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, _aureole_core__WEBPACK_IMPORTED_MODULE_5__["dbConfig"], { entities: _aureole_core__WEBPACK_IMPORTED_MODULE_5__["entities"].concat([_group_group_entity__WEBPACK_IMPORTED_MODULE_8__["Group"], _person_person_entity__WEBPACK_IMPORTED_MODULE_10__["Person"]]) })),
+                _nestjs_typeorm__WEBPACK_IMPORTED_MODULE_3__["TypeOrmModule"].forFeature(_aureole_core__WEBPACK_IMPORTED_MODULE_5__["entities"].concat([_group_group_entity__WEBPACK_IMPORTED_MODULE_8__["Group"], _person_person_entity__WEBPACK_IMPORTED_MODULE_10__["Person"]]))
             ],
-            controllers: _aureole_core__WEBPACK_IMPORTED_MODULE_4__["controllers"].concat([_app_controller__WEBPACK_IMPORTED_MODULE_5__["AppController"], _group_group_controller__WEBPACK_IMPORTED_MODULE_9__["GroupController"], _person_person_controller__WEBPACK_IMPORTED_MODULE_10__["PersonController"]]),
-            providers: _aureole_core__WEBPACK_IMPORTED_MODULE_4__["services"].concat([_app_service__WEBPACK_IMPORTED_MODULE_6__["AppService"], _group_group_service__WEBPACK_IMPORTED_MODULE_11__["GroupService"], _person_person_service__WEBPACK_IMPORTED_MODULE_12__["PersonService"]]),
+            controllers: _aureole_core__WEBPACK_IMPORTED_MODULE_5__["controllers"].concat([_app_controller__WEBPACK_IMPORTED_MODULE_6__["AppController"], _group_group_controller__WEBPACK_IMPORTED_MODULE_11__["GroupController"], _person_person_controller__WEBPACK_IMPORTED_MODULE_12__["PersonController"]]),
+            providers: _aureole_core__WEBPACK_IMPORTED_MODULE_5__["services"].concat([{
+                    provide: _nestjs_core__WEBPACK_IMPORTED_MODULE_1__["APP_FILTER"],
+                    useClass: _http_error_filter__WEBPACK_IMPORTED_MODULE_9__["HttpErrorFilter"],
+                }, _app_service__WEBPACK_IMPORTED_MODULE_7__["AppService"], _group_group_service__WEBPACK_IMPORTED_MODULE_13__["GroupService"], _person_person_service__WEBPACK_IMPORTED_MODULE_14__["PersonService"]]),
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof typeorm__WEBPACK_IMPORTED_MODULE_3__["Connection"] !== "undefined" && typeorm__WEBPACK_IMPORTED_MODULE_3__["Connection"]) === "function" ? _a : Object])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_a = typeof typeorm__WEBPACK_IMPORTED_MODULE_4__["Connection"] !== "undefined" && typeorm__WEBPACK_IMPORTED_MODULE_4__["Connection"]) === "function" ? _a : Object])
     ], AppModule);
     return AppModule;
 }());
@@ -226,15 +225,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var AppService = /** @class */ (function () {
     function AppService() {
-        this.todos = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
     }
-    AppService.prototype.getData = function () {
-        return this.todos;
-    };
-    AppService.prototype.addTodo = function () {
-        this.todos.push({
-            title: "New todo " + Math.floor(Math.random() * 1000)
-        });
+    AppService.prototype.root = function () {
+        return 'Hello World!';
     };
     AppService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -433,6 +426,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../group/create-group.dto */ "./apps/api/src/app/group/create-group.dto.ts");
 /* harmony import */ var _group_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./group.service */ "./apps/api/src/app/group/group.service.ts");
 /* harmony import */ var _validation_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../validation.pipe */ "./apps/api/src/validation.pipe.ts");
+/* harmony import */ var _group_interceptor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./group.interceptor */ "./apps/api/src/app/group/group.interceptor.ts");
+/* harmony import */ var _http_error_filter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../http-error.filter */ "./apps/api/src/http-error.filter.ts");
+
+
 
 
 
@@ -453,18 +450,14 @@ var GroupController = /** @class */ (function () {
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_1 = _a.sent();
-                        console.log(error_1);
-                        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]({
-                            status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].INTERNAL_SERVER_ERROR,
-                            message: 'Error!'
-                        }, 500);
+                        throw new _group_interceptor__WEBPACK_IMPORTED_MODULE_5__["EntityNotFoundError"]();
                     case 3: return [2 /*return*/];
                 }
             });
         });
     };
     GroupController.prototype.findOne = function (body) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, Promise, function () {
             var error_2;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
@@ -474,11 +467,7 @@ var GroupController = /** @class */ (function () {
                     case 1: return [2 /*return*/, _a.sent()];
                     case 2:
                         error_2 = _a.sent();
-                        console.log(error_2);
-                        throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]({
-                            status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].NOT_FOUND,
-                            message: 'Not Found!'
-                        }, 400);
+                        throw new _group_interceptor__WEBPACK_IMPORTED_MODULE_5__["EntityNotFoundError"]();
                     case 3: return [2 /*return*/];
                 }
             });
@@ -502,10 +491,7 @@ var GroupController = /** @class */ (function () {
                             }, 200);
                         }
                         else {
-                            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]({
-                                status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].INTERNAL_SERVER_ERROR,
-                                message: 'Error!'
-                            }, 500);
+                            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["BadRequestException"]();
                         }
                         return [2 /*return*/];
                 }
@@ -554,10 +540,7 @@ var GroupController = /** @class */ (function () {
                             }, 200);
                         }
                         else {
-                            throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpException"]({
-                                status: _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].NOT_FOUND,
-                                message: 'Not Found!'
-                            }, 400);
+                            throw new _group_interceptor__WEBPACK_IMPORTED_MODULE_5__["EntityNotFoundError"]();
                         }
                         return [2 /*return*/];
                 }
@@ -589,9 +572,10 @@ var GroupController = /** @class */ (function () {
             });
         });
     };
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('get/many'),
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseInterceptors"])(_group_interceptor__WEBPACK_IMPORTED_MODULE_5__["NotFoundInterceptor"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Array]),
@@ -599,44 +583,47 @@ var GroupController = /** @class */ (function () {
     ], GroupController.prototype, "index", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('get/one'),
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseInterceptors"])(_group_interceptor__WEBPACK_IMPORTED_MODULE_5__["NotFoundInterceptor"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", Promise)
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_b = typeof Promise !== "undefined" && Promise) === "function" ? _b : Object)
     ], GroupController.prototype, "findOne", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('post'),
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UsePipes"])(new _validation_pipe__WEBPACK_IMPORTED_MODULE_4__["ValidationPipe"]()),
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseFilters"])(_http_error_filter__WEBPACK_IMPORTED_MODULE_6__["HttpErrorFilter"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_b = typeof _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"] !== "undefined" && _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"]) === "function" ? _b : Object]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_c = typeof _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"] !== "undefined" && _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"]) === "function" ? _c : Object]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_d = typeof Promise !== "undefined" && Promise) === "function" ? _d : Object)
     ], GroupController.prototype, "insert", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('put'),
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UsePipes"])(new _validation_pipe__WEBPACK_IMPORTED_MODULE_4__["ValidationPipe"]()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_d = typeof _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"] !== "undefined" && _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"]) === "function" ? _d : Object]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_e = typeof _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"] !== "undefined" && _group_create_group_dto__WEBPACK_IMPORTED_MODULE_2__["CreateGroupDto"]) === "function" ? _e : Object]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
     ], GroupController.prototype, "update", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('delete/one'),
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["UseInterceptors"])(_group_interceptor__WEBPACK_IMPORTED_MODULE_5__["NotFoundInterceptor"]),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_g = typeof Promise !== "undefined" && Promise) === "function" ? _g : Object)
     ], GroupController.prototype, "deleteone", null);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Post"])('delete/many'),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](0, Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Body"])()),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Array]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_g = typeof Promise !== "undefined" && Promise) === "function" ? _g : Object)
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", typeof (_h = typeof Promise !== "undefined" && Promise) === "function" ? _h : Object)
     ], GroupController.prototype, "deletemany", null);
     GroupController = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Controller"])('group'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_h = typeof _group_service__WEBPACK_IMPORTED_MODULE_3__["GroupService"] !== "undefined" && _group_service__WEBPACK_IMPORTED_MODULE_3__["GroupService"]) === "function" ? _h : Object])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [typeof (_j = typeof _group_service__WEBPACK_IMPORTED_MODULE_3__["GroupService"] !== "undefined" && _group_service__WEBPACK_IMPORTED_MODULE_3__["GroupService"]) === "function" ? _j : Object])
     ], GroupController);
     return GroupController;
 }());
@@ -742,6 +729,58 @@ var Group = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./apps/api/src/app/group/group.interceptor.ts":
+/*!*****************************************************!*\
+  !*** ./apps/api/src/app/group/group.interceptor.ts ***!
+  \*****************************************************/
+/*! exports provided: EntityNotFoundError, NotFoundInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EntityNotFoundError", function() { return EntityNotFoundError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotFoundInterceptor", function() { return NotFoundInterceptor; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var EntityNotFoundError = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](EntityNotFoundError, _super);
+    function EntityNotFoundError() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityNotFoundError;
+}(Error));
+
+var NotFoundInterceptor = /** @class */ (function () {
+    function NotFoundInterceptor() {
+    }
+    NotFoundInterceptor.prototype.intercept = function (context, stream$) {
+        // stream$ is an Observable of the controller's result value
+        return stream$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])(function (error) {
+            if (error instanceof EntityNotFoundError) {
+                throw new _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["NotFoundException"](error.message);
+            }
+            else {
+                throw error;
+            }
+        }));
+    };
+    NotFoundInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+    ], NotFoundInterceptor);
+    return NotFoundInterceptor;
+}());
+
+
+
+/***/ }),
+
 /***/ "./apps/api/src/app/group/group.service.ts":
 /*!*************************************************!*\
   !*** ./apps/api/src/app/group/group.service.ts ***!
@@ -771,7 +810,7 @@ var GroupService = /** @class */ (function () {
         this.groupRepository = groupRepository;
     }
     GroupService.prototype.findAll = function (context) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, Promise, function () {
             var params, list, result, index, index, index, index, index, index, index, index, index, index, dateFrom, sortListByDate, indexFrom, dateTo_1, sortListByDate, indexTo;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
@@ -929,7 +968,7 @@ var GroupService = /** @class */ (function () {
         });
     };
     GroupService.prototype.findOne = function (context) {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, Promise, function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -939,10 +978,8 @@ var GroupService = /** @class */ (function () {
                                 lang: context.lang,
                                 code: context.code
                             })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/, true];
-                    case 2: return [2 /*return*/, false];
+                    case 1: return [2 /*return*/, _a.sent()];
+                    case 2: return [2 /*return*/];
                 }
             });
         });
@@ -1007,7 +1044,6 @@ var GroupService = /** @class */ (function () {
                             })];
                     case 1:
                         result = _a.sent();
-                        console.log(result[0].change_count);
                         if (!(result[0].change_count === context.change_count)) return [3 /*break*/, 10];
                         if (!(result[0].active_flag === true)) return [3 /*break*/, 9];
                         if (!result) return [3 /*break*/, 8];
@@ -1385,6 +1421,59 @@ var PersonService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./apps/api/src/http-error.filter.ts":
+/*!*******************************************!*\
+  !*** ./apps/api/src/http-error.filter.ts ***!
+  \*******************************************/
+/*! exports provided: HttpErrorFilter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpErrorFilter", function() { return HttpErrorFilter; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "tslib");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(tslib__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @nestjs/common */ "@nestjs/common");
+/* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var HttpErrorFilter = /** @class */ (function () {
+    function HttpErrorFilter() {
+    }
+    HttpErrorFilter.prototype.catch = function (exception, host) {
+        var ctx = host.switchToHttp();
+        var response = ctx.getResponse();
+        var request = ctx.getRequest();
+        var status = exception.getStatus
+            ? exception.getStatus()
+            : _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].INTERNAL_SERVER_ERROR;
+        var errorResponse = {
+            code: status,
+            timestamp: new Date().toLocaleDateString(),
+            path: request.url,
+            method: request.method,
+            message: status !== _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].INTERNAL_SERVER_ERROR
+                ? exception.message.error || exception.message || null
+                : 'Internal server error',
+        };
+        if (status === _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["HttpStatus"].INTERNAL_SERVER_ERROR) {
+            _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Logger"].error(request.method + " " + request.url, exception.stack, 'ExceptionFilter');
+        }
+        else {
+            _nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Logger"].error(request.method + " " + request.url, JSON.stringify(errorResponse), 'ExceptionFilter');
+        }
+        response.status(status).json(errorResponse);
+    };
+    HttpErrorFilter = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_nestjs_common__WEBPACK_IMPORTED_MODULE_1__["Catch"])()
+    ], HttpErrorFilter);
+    return HttpErrorFilter;
+}());
+
+
+
+/***/ }),
+
 /***/ "./apps/api/src/main.ts":
 /*!******************************!*\
   !*** ./apps/api/src/main.ts ***!
@@ -1402,10 +1491,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nestjs_common__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_nestjs_common__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/app.module */ "./apps/api/src/app/app.module.ts");
 /* harmony import */ var _src_validation_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/validation.pipe */ "./apps/api/src/validation.pipe.ts");
+/* harmony import */ var _http_error_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./http-error.filter */ "./apps/api/src/http-error.filter.ts");
 /**
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  **/
+
 
 
 
@@ -1420,6 +1511,7 @@ function bootstrap() {
                 case 1:
                     app = _a.sent();
                     globalPrefix = 'api/v1';
+                    app.useGlobalFilters(new _http_error_filter__WEBPACK_IMPORTED_MODULE_5__["HttpErrorFilter"]());
                     app.useGlobalPipes(new _src_validation_pipe__WEBPACK_IMPORTED_MODULE_4__["ValidationPipe"]());
                     app.setGlobalPrefix(globalPrefix);
                     app.enableCors();
@@ -1526,7 +1618,7 @@ var ValidationPipe = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\demoapp\Dev\nxnest-dev\myorg\apps\api\src\main.ts */"./apps/api/src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Asus\Workspace\pmtools\myorg\apps\api\src\main.ts */"./apps/api/src/main.ts");
 
 
 /***/ }),
@@ -1594,6 +1686,17 @@ module.exports = require("class-transformer");
 /***/ (function(module, exports) {
 
 module.exports = require("class-validator");
+
+/***/ }),
+
+/***/ "rxjs/operators":
+/*!*********************************!*\
+  !*** external "rxjs/operators" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("rxjs/operators");
 
 /***/ }),
 

@@ -10,7 +10,7 @@ export class GroupService {
     private groupRepository: Repository<Group>
   ) {}
 
-  async findAll(context: any) {
+  async findAll(context: any) :Promise<Group[]> {
     const params = new Object();
     let list = [];
 
@@ -203,17 +203,15 @@ export class GroupService {
     return list;
   }
 
-  async findOne(context: any) {
+  async findOne(context: any) :Promise<Group> {
     if (context.code !== '') {
-    await this.groupRepository.findOne({
+    return await this.groupRepository.findOne({
       company: context.company,
       lang: context.lang,
       code: context.code
     });
-      return true;
-    }
-    return false;
   }
+}
 
   // CREATE GROUP WITH 3 LANGUAGE WITH SAME BODY REQ
   async create(context: any) {
@@ -260,7 +258,6 @@ export class GroupService {
         company: context.company,
         code: context.code
       });
-      console.log(result[0].change_count);
       if(result[0].change_count === context.change_count) {
         if(result[0].active_flag === true) {
           if (result) {

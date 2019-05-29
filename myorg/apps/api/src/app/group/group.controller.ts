@@ -1,48 +1,39 @@
-import { Body,Controller,HttpException,HttpStatus,Post,UsePipes } from '@nestjs/common';
+import { Body,Controller,HttpException,HttpStatus,Post,UsePipes, UseInterceptors, UseFilters, BadRequestException } from '@nestjs/common';
 import { CreateGroupDto } from '../group/create-group.dto';
 import { Group } from './group.entity';
 import { GroupService } from './group.service';
 import { ValidationPipe } from '../../validation.pipe';
+import { NotFoundInterceptor, EntityNotFoundError } from './group.interceptor';
+import { HttpErrorFilter } from '../../http-error.filter';
 
 @Controller('group')
 export class GroupController {
   constructor(private readonly groupService: GroupService) {}
 
   @Post('get/many')
+  @UseInterceptors(NotFoundInterceptor)
   async index(@Body() body: any[]): Promise<Group[]> {
     try {
       return await this.groupService.findAll(body);
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        {
-          status: HttpStatus.INTERNAL_SERVER_ERROR,
-          message: 'Error!'
-        },
-        500
-      );
+      throw new EntityNotFoundError();
     }
   }
 
   @Post('get/one')
-  async findOne(@Body() body: any) {
+  @UseInterceptors(NotFoundInterceptor)
+  async findOne(@Body() body: any): Promise<Group> {
     try {
       return await this.groupService.findOne(body);
     } catch (error) {
-      console.log(error);
-      throw new HttpException(
-        {
-          status: HttpStatus.NOT_FOUND,
-          message: 'Not Found!'
-        },
-        400
-      );
+      throw new EntityNotFoundError();
     }
   }
 
   @Post('post')
   @UsePipes(new ValidationPipe())
-  async insert(@Body() createGroupDto: CreateGroupDto): Promise<any> {
+  @UseFilters(new HttpErrorFilter())  
+  async insert(@Body() createGroupDto: CreateGroupDto): Promise<Group> {
     const newGroup = Object.assign(createGroupDto);
     console.log('Insert #' + newGroup.code);
 
@@ -56,18 +47,13 @@ export class GroupController {
         200
       );
     } else {
-      throw new HttpException(
-        {
-          status: HttpStatus.INTERNAL_SERVER_ERROR,
-          message: 'Error!'
-        },
-        500
-      );
+      throw new HttpErrorFilter();
     }
   }
 
   @Post('put')
   @UsePipes(new ValidationPipe())
+  @UseFilters(new HttpErrorFilter())
   async update(@Body() createGroupDto: CreateGroupDto): Promise<any> {
     console.log('Update #' + createGroupDto.code);
 
@@ -81,17 +67,12 @@ export class GroupController {
         200
       );
     } else {
-      throw new HttpException(
-        {
-          status: HttpStatus.INTERNAL_SERVER_ERROR,
-          message: 'Error!'
-        },
-        500
-      );
+      throw new HttpErrorFilter();
     }
   }
 
   @Post('delete/one')
+  @UseInterceptors(NotFoundInterceptor)
   async deleteone(@Body() body: any): Promise<any> {
     const result = await this.groupService.deleteOne(body);
     if (result === true) {
@@ -103,17 +84,12 @@ export class GroupController {
         200
       );
     } else {
-      throw new HttpException(
-        {
-          status: HttpStatus.NOT_FOUND,
-          message: 'Not Found!'
-        },
-        400
-      );
+      throw new EntityNotFoundError();
     }
   }
 
   @Post('delete/many')
+  @UseFilters(new HttpErrorFilter())
   async deletemany(@Body() body: any[]): Promise<any[]> {
     const result = await this.groupService.deleteMany(body);
     if (result === true) {
@@ -125,13 +101,7 @@ export class GroupController {
         200
       );
     } else {
-      throw new HttpException(
-        {
-          status: HttpStatus.INTERNAL_SERVER_ERROR,
-          message: 'Error!'
-        },
-        500
-      );
+      throw new HttpErrorFilter();
     }
   }
 }
