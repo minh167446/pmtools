@@ -1,0 +1,49 @@
+<div class="container col-md-12">
+    <div>
+        <button (click)="addEmployee()" class="btn btn-primary">Thêm nhân viên</button>
+      </div>
+  <h2>Tất cả nhân viên</h2>
+  <div class="table-responsive table-container">
+    <table class="table table-hover table-striped">
+      <thead class="thead-primary">
+        <tr>
+          <th>Mã nhân viên</th>
+          <th>Tên nhân viên</th>
+          <th>Giới tính</th>
+          <th>Ngày sinh</th>
+          <th>Địa chỉ</th>
+          <th>Số điện thoại</th>
+          <th>email</th>
+          <th>Xóa</th>
+          <th>Sửa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of Employees">
+          <td>{{e.idEmployee}}</td>
+          <td>{{e.fullName}}</td>
+          <td >
+          <div *ngIf="e.genDer == true; else gen" >
+            Nam
+          </div>
+          <ng-template #gen>
+           Nữ
+          </ng-template>
+        </td>
+          <td >{{e.birthday}}</td>
+          <td>{{e.address}}</td>
+          <td>{{e.mobile}}</td>
+          <td>{{e.email}}</td>
+            <td>
+                <button (click)="deleteEmployee(e)" class="btn btn-danger"> Delete</button>
+              </td>
+          <td>
+            <a routerLink="edit-employee/{{ e.idEmployee }}">
+            <button (click)="updateEmployee(employee)" style="margin-left: 20px;" class="btn btn-success"> Edit</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
